@@ -3,7 +3,7 @@ import { ref, computed } from 'vue';
 
 import HeaderComponent from '@/components/HeaderComponent.vue';
 import BalanceComponent from './components/BalanceComponent.vue';
-import IncomeExpenseComponent from '@/components/IncomeExpenseComponent.vue';
+import IncomeExpensesComponent from '@/components/IncomeExpensesComponent.vue';
 import TransactionListComponent from '@/components/TransactionListComponent.vue';
 import AddTransactionComponent from '@/components/AddTransactionComponent.vue';
 
@@ -26,19 +26,36 @@ const transactions = ref([
   {id: 4, text: 'Camera', amount: 150}
 ]);
 
-const total = computed(() => {
-  return transactions.value.reduce((acc, current) => {
-    return acc + current.amount;
-  }, 0);
+
+const calculateTransactions = (filterFn) => computed(() => {
+  return transactions.value
+    .filter(filterFn)
+    .reduce((acc, current) => acc + current.amount, 0);
 });
+
+const total = calculateTransactions(()=> true);
+const income = calculateTransactions((i) => i.amount > 0);
+const expenses = calculateTransactions((i) => i.amount < 0);
+
+const handleAddTransaction = (transactionData) => {
+  transactions.value.push({
+  id: generateUniqueId(),
+  ...transactionData
+  });
+};
+
+const generateUniqueId = () => {
+  const lastIndexId = transactions.value[transactions.value.length -1 ].id;
+  return lastIndexId + 1;
+};
 </script>
 
 <template>
   <HeaderComponent />
   <div class="container">
     <BalanceComponent :total="total"/>
-    <IncomeExpenseComponent/>
+    <IncomeExpensesComponent :income="income" :expenses="expenses"/>
     <TransactionListComponent :transactions="transactions"/>
-    <AddTransactionComponent/>
+    <AddTransactionComponent @add-transaction="handleAddTransaction"/>
   </div>
 </template>

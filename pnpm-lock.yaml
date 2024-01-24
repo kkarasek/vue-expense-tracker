@@ -12,9 +12,11 @@ specifiers:
   prettier-plugin-vue: ^1.1.6
   vite: ^5.0.10
   vue: ^3.3.11
+  vue-toastification: 2.0.0-rc.5
 
 dependencies:
   vue: 3.4.5
+  vue-toastification: 2.0.0-rc.5_vue@3.4.5
 
 devDependencies:
   '@rushstack/eslint-patch': 1.6.1
@@ -1414,6 +1416,14 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /vue-toastification/2.0.0-rc.5_vue@3.4.5:
+    resolution: {integrity: sha512-q73e5jy6gucEO/U+P48hqX+/qyXDozAGmaGgLFm5tXX4wJBcVsnGp4e/iJqlm9xzHETYOilUuwOUje2Qg1JdwA==}
+    peerDependencies:
+      vue: ^3.0.2
+    dependencies:
+      vue: 3.4.5
+    dev: false
 
   /vue/3.4.5:
     resolution: {integrity: sha512-VH6nHFhLPjgu2oh5vEBXoNZxsGHuZNr3qf4PHClwJWw6IDqw6B3x+4J+ABdoZ0aJuT8Zi0zf3GpGlLQCrGWHrw==}

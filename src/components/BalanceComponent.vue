@@ -1,5 +1,5 @@
 <script setup>
-import displayBalanceAmount from '@/helpers/displayBalanceAmount';
+import displayAmount from '@/helpers/displayAmount';
 
 // const props = defineProps({}) -> then access via props.total or just {{total}} in template syntax
 defineProps({
@@ -12,5 +12,5 @@ defineProps({
 
 <template>
   <h4>Your Balance</h4>
-  <h1 id="balance">{{ displayBalanceAmount(total) }}</h1>
-</template>
+  <h1 id="balance">{{ displayAmount(total) }}</h1>
+</template>@/helpers/displayAmount
