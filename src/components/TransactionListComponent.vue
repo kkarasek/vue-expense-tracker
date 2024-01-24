@@ -1,5 +1,5 @@
 <script setup>
-import displayTransactionAmount from '@/helpers/displayTransactionAmount';
+import displayAmount from '@/helpers/displayAmount';
 
 defineProps({
   transactions: {
@@ -17,7 +17,7 @@ defineProps({
       :key="transaction.id"
       :class="transaction.amount < 0 ? 'minus' : 'plus'"
     >
-    {{ transaction.text }}<span>{{ displayTransactionAmount(transaction.amount) }}</span>
+    {{ transaction.text }}<span>{{ displayAmount(transaction.amount) }}</span>
     <button type="button" class="delete-btn">x</button>
     </li>
   </ul>
@@ -82,4 +82,4 @@ export default {
     }
   },
 };
-</script> -->
+</script> -->@/helpers/displayAmount

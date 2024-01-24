@@ -1,4 +1,4 @@
-const displayBalanceAmount = (amount) => {
+const displayAmount = (amount) => {
   const roundedAmount = amount.toFixed(2);
   const formattedRoundedAmount = `${roundedAmount < 0 ? '-' : ''}$${roundedAmount
     .toString()
@@ -6,4 +6,4 @@ const displayBalanceAmount = (amount) => {
   return formattedRoundedAmount;
 };
 
-export default displayBalanceAmount;
+export default displayAmount;
