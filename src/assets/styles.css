@@ -101,7 +101,6 @@ input[type='number'] {
   width: 100%;
 }
 
-.btn:focus,
 .delete-btn:focus {
   outline: 0;
 }

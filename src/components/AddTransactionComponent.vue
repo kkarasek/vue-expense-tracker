@@ -33,15 +33,15 @@ const handleSubmit= () => {
   <form id="form" @submit.prevent="handleSubmit">
     <div class="form-control">
       <label for="text">Text</label>
-      <input id="text" type="text" v-model="text" placeholder="Enter text..." />
+      <input id="text" v-model="text" type="text" placeholder="Enter text..." />
     </div>
     <div class="form-control">
       <label for="amount"
         >Amount <br />
         (negative - expense, positive - income)</label
       >
-      <input id="amount" type="number" v-model="amount" placeholder="Enter amount..." />
+      <input id="amount" v-model="amount" type="number"  placeholder="Enter amount..." />
     </div>
-    <button class="btn">Add transaction</button>
+    <button class="btn" type="submit">Add transaction</button>
   </form>
 </template>

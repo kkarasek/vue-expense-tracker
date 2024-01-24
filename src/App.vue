@@ -37,16 +37,16 @@ const total = calculateTransactions(()=> true);
 const income = calculateTransactions((i) => i.amount > 0);
 const expenses = calculateTransactions((i) => i.amount < 0);
 
-const handleAddTransaction = (transactionData) => {
-  transactions.value.push({
-  id: generateUniqueId(),
-  ...transactionData
-  });
+const generateId = () => {
+  const lastIndexId = transactions.value[transactions.value.length - 1].id;
+  return lastIndexId + 1;
 };
 
-const generateUniqueId = () => {
-  const lastIndexId = transactions.value[transactions.value.length -1 ].id;
-  return lastIndexId + 1;
+const handleAddTransaction = (transactionData) => {
+  transactions.value.push({
+  id: generateId(),
+  ...transactionData
+  });
 };
 </script>
 
