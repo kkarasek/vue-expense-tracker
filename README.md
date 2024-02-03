@@ -1,4 +1,5 @@
 ## To be added
 
--[] dark mode
--[] integrate eslint and prettier
+[ ] dark mode
+
+[ ] integrate eslint and prettier
