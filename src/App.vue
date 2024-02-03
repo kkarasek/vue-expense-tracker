@@ -74,7 +74,6 @@ const saveTransactionsToLocalStorage = () => {
 
 onMounted(() => {
   const savedTransactions = JSON.parse(localStorage.getItem('transactions'));
-  console.log(savedTransactions);
 
   if(savedTransactions) {
     transactions.value = savedTransactions;
