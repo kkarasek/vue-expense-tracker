@@ -1,17 +1,17 @@
 <script setup>
 import {ref} from 'vue';
-import { useToast } from "vue-toastification";
+import { useToast } from 'vue-toastification';
 
 const toast = useToast();
 
-const emit = defineEmits(['addTransaction']);
+const emit = defineEmits(['addTransaction', 'sayHello']);
 
 const text = ref('');
 const amount = ref('');
 
-const handleSubmit= () => {
+const handleSubmit = () => {
   if(! text.value || !amount.value){
-    toast.error('You have to fill both fields!');
+    toast.error('You have to fill both fields!', { timeout: 2000 });
     return;
   }
 
@@ -26,6 +26,7 @@ const handleSubmit= () => {
   text.value = '';
   amount.value = '';
 };
+
 </script>
 
 <template>
@@ -42,6 +43,7 @@ const handleSubmit= () => {
       >
       <input id="amount" v-model="amount" type="number"  placeholder="Enter amount..." />
     </div>
-    <button class="btn" type="submit">Add transaction</button>
+    <button type="submit" class="btn" >Add transaction</button>
+    <button type="button" class="say-hello" @click="$emit('sayHello', 'Kuba')">Say Hello 👋</button>
   </form>
 </template>
